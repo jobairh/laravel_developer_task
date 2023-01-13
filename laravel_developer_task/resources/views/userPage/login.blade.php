@@ -19,13 +19,16 @@
                         <div class="card">
                             <div class="card-title">Sign In</div>
                             <div class="card-body">
-                                <form action="">
+
+                                <form action="{{ route('login') }}" method="post">
+                                    <h6 class="text-center text-danger">{{ session('message') }}</h6>
+                                    @csrf
                                     <div class="mt-3">
                                         <label for="" class="form-label">Email</label>
                                         <input
                                             type="email"
                                             class="form-control u-box-shadow-1"
-                                            name=""
+                                            name="email"
                                         />
                                     </div>
                                     <div class="mt-3">
@@ -33,13 +36,14 @@
                                         <input
                                             type="password"
                                             class="form-control u-box-shadow-1"
-                                            name=""
+                                            name="password"
                                         />
                                     </div>
                                     <div class="mt-5">
-                                        <div class="btn btn-green">Sign In</div>
+                                        <div class="btn btn-green"><button type="submit">Sign In</button></div>
                                     </div>
                                 </form>
+
                                 <div class="links">
                                     <p>
                                         <a href="{{ route('signUp') }}">Need an account?</a>

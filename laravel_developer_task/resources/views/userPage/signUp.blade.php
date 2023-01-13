@@ -32,27 +32,30 @@
             Sign up is easy and free. You don't pay anything until you're ready to
             order content.
         </p>
-        <form action="">
+
+        <form action="{{ route('signUp') }}" method="post" enctype="multipart/form-data">
+            @csrf
             <div class="mt-3">
                 <label for="" class="form-label">First Name</label>
-                <input type="text" class="form-control u-box-shadow-1" name="" />
+                <input type="text" class="form-control u-box-shadow-1" name="first_name" />
             </div>
             <div class="mt-3">
                 <label for="" class="form-label">Email</label>
-                <input type="email" class="form-control u-box-shadow-1" name="" />
+                <input type="email" class="form-control u-box-shadow-1" name="email" />
             </div>
             <div class="mt-3">
                 <label for="" class="form-label">Password</label>
                 <input
                     type="password"
                     class="form-control u-box-shadow-1"
-                    name=""
+                    name="password"
                 />
             </div>
             <div class="mt-5">
-                <div class="btn btn-blue">Sign Up</div>
+                <div class="btn btn-blue"><button type="submit">Sign Up</button></div>
             </div>
         </form>
+
         <p class="privacy-links mt-5">
             I agree to the
             <a href="terms-conditions.html"> Terms & Conditions </a>

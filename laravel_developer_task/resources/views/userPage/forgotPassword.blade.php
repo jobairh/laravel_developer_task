@@ -19,19 +19,23 @@
                     <div class="card">
                         <div class="card-title">Forgot Password</div>
                         <div class="card-body">
-                            <form action="">
+
+                            <form action="{{ route('signUp') }}" method="post">
+                                <h6 class="text-center text-danger">{{ session('message') }}</h6>
+                                @csrf
                                 <div class="mt-3">
                                     <label for="" class="form-label">Email</label>
                                     <input
                                         type="email"
                                         class="form-control u-box-shadow-1"
-                                        name=""
+                                        name="email"
                                     />
                                 </div>
                                 <div class="my-5">
-                                    <div class="btn btn-green">Request Password</div>
+                                    <div class="btn btn-green"><button type="submit">Request Password</button></div>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>

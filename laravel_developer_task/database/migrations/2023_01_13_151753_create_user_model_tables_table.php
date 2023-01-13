@@ -15,12 +15,9 @@ return new class extends Migration
     {
         Schema::create('user_model_tables', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('student_name');
-            $table->string('student_email')->unique();
-            $table->string('student_phone')->unique();
+            $table->string('first_name');
+            $table->string('email')->unique();
             $table->string('password');
-            $table->text('image')->nullable();
-            $table->text('address')->nullable();
         });
     }
 
