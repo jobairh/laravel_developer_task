@@ -55,9 +55,21 @@ class IndexController extends Controller
         }
     }
 
-//    public function userLogout(){
-//        Session::forget('userId');
-//        Session::forget('userName');
-//        return redirect('/');
-//    }
+    public function userLogout(){
+        Session::forget('userId');
+        Session::forget('userName');
+        return redirect('/');
+    }
+
+    public function passwordCheck(Request $request){
+        $userInfo=UserModelTable::where('email',$request->email)
+            ->first();
+        if ($userInfo){
+                Session::put('userId',$userInfo->id);
+                Session::put('userName',$userInfo->first_name);
+                return redirect('/userHomePage');
+        }else{
+            return back()->with('message','invalid email');
+        }
+    }
 }

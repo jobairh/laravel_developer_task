@@ -52,7 +52,7 @@
                 />
             </div>
             <div class="mt-5">
-                <div class="btn btn-blue"><button type="submit">Sign Up</button></div>
+                <div><button class="btn btn-blue" type="submit">Sign Up</button></div>
             </div>
         </form>
 

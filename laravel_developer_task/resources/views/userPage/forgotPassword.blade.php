@@ -20,20 +20,33 @@
                         <div class="card-title">Forgot Password</div>
                         <div class="card-body">
 
-                            <form action="{{ route('signUp') }}" method="post">
-                                <h6 class="text-center text-danger">{{ session('message') }}</h6>
+                            <form action="{{ route('passwordCheck') }}" method="post">
+                                @if(Session::get('fail'))
+                                    <div class="alert alert-danger">
+                                        {{ Session::get('fail') }}
+                                    </div>
+                                    @endif
+                                @if(Session::get('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                    </div>
+                                    @endif
+
                                 @csrf
                                 <div class="mt-3">
                                     <label for="" class="form-label">Email</label>
                                     <input
                                         type="email"
                                         class="form-control u-box-shadow-1"
+                                        placeholder="Enter email address"
                                         name="email"
                                     />
                                 </div>
                                 <div class="my-5">
-                                    <div class="btn btn-green"><button type="submit">Request Password</button></div>
+                                    <div><button class="btn btn-green" type="submit">Send Reset Password Link</button></div>
                                 </div>
+                                <br>
+                                <a class="btn-blue" href="{{ route('login') }}">Login</a>
                             </form>
 
                         </div>
